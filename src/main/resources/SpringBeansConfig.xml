@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fighterPro" class="Fighters.Fighter">
+        <constructor-arg value="TRAITOR" index="0" type="java.lang.String" />
+        <constructor-arg value="28" index="1" type="int"/>
+        <constructor-arg value="false" index="2" type="boolean"/>
+
+        <property name="device" ref="ggDevice" />
+        <property name="game" ref="ggGame" />
+        <property name="overdrive" ref="ggOverdrive" />
+    </bean>
+
+    <bean id = "ggDevice" class="GuiltyGearFighter.GuiltyDevice"></bean>
+    <bean id = "ggGame" class="GuiltyGearFighter.GuiltyGame"></bean>
+    <bean id = "ggOverdrive" class="GuiltyGearFighter.GuiltyOverdrive"></bean>
+
+    <bean id = "mkDevice" class="MKFighter.MKDevice"></bean>
+    <bean id = "mkGame" class="MKFighter.MKGame"></bean>
+    <bean id = "mkOverdrive" class="MKFighter.MKOverdrive"></bean>
+</beans>
