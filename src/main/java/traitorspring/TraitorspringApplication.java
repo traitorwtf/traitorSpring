@@ -13,7 +13,13 @@ public class TraitorspringApplication {
 		SpringApplication.run(TraitorspringApplication.class, args);
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeansConfig.xml");
-		Fighter fighter = (Fighter) context.getBean("fighterPro");
-		fighter.fight();
+
+		Fighter ggfighter = (Fighter) context.getBean("GGfighterPro");
+		ggfighter.fight();
+
+		System.out.println("\n");
+
+		Fighter mkfighter = (Fighter) context.getBean("MKfighterPro");
+		mkfighter.fight();
 	}
 }
