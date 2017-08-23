@@ -1,6 +1,7 @@
 package traitorspring;
 
 import Fighters.Fighter;
+import Fighters.FightersPool;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,12 +15,15 @@ public class TraitorspringApplication {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeansConfig.xml");
 
-		Fighter ggfighter = (Fighter) context.getBean("GGfighterPro");
-		ggfighter.fight();
+//		Fighter ggfighter = (Fighter) context.getBean("GGfighterPro");
+//		ggfighter.fight();
+//
+//		System.out.println("\n");
+//
+//		Fighter mkfighter = (Fighter) context.getBean("MKfighterPro");
+//		mkfighter.fight();
 
-		System.out.println("\n");
-
-		Fighter mkfighter = (Fighter) context.getBean("MKfighterPro");
-		mkfighter.fight();
+		FightersPool fightersPool = (FightersPool) context.getBean("fightersPool");
+		fightersPool.beginTournament();
 	}
 }

@@ -44,9 +44,17 @@ public class Fighter {
         System.out.println("Name: " + this.name);
         System.out.println("Age: " + this.age);
         System.out.println("Pro: " + this.pro);
-        game.playGame();
-        device.useDevice();
-        overdrive.useOverdrive();
+        if (game != null) {
+            game.playGame();
+        }
+        if (device != null){
+            device.useDevice();
+        }
+
+        if (overdrive != null){
+            overdrive.useOverdrive();
+        }
+
     }
 
     public Device getDevice() {
