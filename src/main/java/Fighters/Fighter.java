@@ -3,6 +3,8 @@ package Fighters;
 import interfaces.Device;
 import interfaces.Game;
 import interfaces.Overdrive;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by traitorwtf on 22.08.2017.
@@ -12,8 +14,16 @@ public class Fighter {
     private int age;
     private boolean pro;
 
+    @Autowired
+    @Qualifier(value = "ggDevice")
     private Device device;
+
+    @Autowired
+    @Qualifier(value = "ggGame")
     private Game game;
+
+    @Autowired
+    @Qualifier(value = "ggOverdrive")
     private Overdrive overdrive;
 
     public Fighter() {

@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
 
-        <import resource="GameBeans.xml" />
-        <import resource="FightersBeans.xml" />
+       default-lazy-init="true"
+>
 
-        <bean id="fightersPool" class="Fighters.FightersPool">
-            <constructor-arg name="fightersPool">
-                <list>
-                    <ref bean="GGfighterPro" />
-                    <ref bean="MKfighterPro" />
-                    <bean id="multyFighter" class="Fighters.Fighter" >
-                        <constructor-arg value="Fidoskin" type="java.lang.String" index="0" />
-                        <constructor-arg value="25" type="int" index="1" />
-                        <constructor-arg value="true" type="boolean" index="2" />
-                    </bean>
-                </list>
-            </constructor-arg>
-        </bean>
+    <context:component-scan base-package="AOP" />
+    <context:annotation-config />
+    <import resource="GameBeans.xml" />
+    <import resource="FightersBeans.xml" />
+    <aop:aspectj-autoproxy />
+
+
+    <bean id="fightersPool" class="Fighters.FightersPool">
+        <constructor-arg name="fightersPool">
+            <list>
+                <ref bean="GGfighterPro" />
+                <ref bean="MKfighterPro" />
+                <bean id="multyFighter" class="Fighters.Fighter" >
+                    <constructor-arg value="Fidoskin" type="java.lang.String" index="0" />
+                    <constructor-arg value="25" type="int" index="1" />
+                    <constructor-arg value="true" type="boolean" index="2" />
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!--<aop:config>-->
+        <!--<aop:aspect id="log" ref="logger">-->
+            <!--<aop:pointcut id="figtingMethods" expression="execution(public * *(..))" />-->
+            <!--<aop:around method="logMethod" pointcut-ref="figtingMethods" />-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
 </beans>
